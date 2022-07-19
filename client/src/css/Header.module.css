@@ -1,0 +1,18 @@
+.blink {
+  height: 0.8em;
+  background: #fe5186;
+  display: inline-block;
+  width: 8px;
+  margin: auto;
+  /* margin-top: 10px; */
+  animation: cursor 1s ease-in-out infinite;
+}
+
+@keyframes cursor {
+  0% {
+    background: #fe5186;
+  }
+  100% {
+    background: #fe518510;
+  }
+}
