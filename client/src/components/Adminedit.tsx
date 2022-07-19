@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { itemsContext } from "../layouts";
 type myobj = {
   itemName: string;
   total: string;
@@ -19,6 +20,7 @@ function Adminedit({
   const [newno, setnewno] = useState<number>(Number(selected.total));
   const [newavai, setnewavi] = useState<number>(selected.available);
   const [newcat, setnewcat] = useState(selected.category);
+  const { items, setitems } = useContext(itemsContext);
   const handlesave = () => {
     if (newavai > newno || newname === "") {
       alert("There seems something wrong ");
@@ -69,6 +71,10 @@ function Adminedit({
           setnewname("");
           setnewavi(1);
           setnewno(1);
+          var filtered = items.filter(
+            (item) => item.itemName !== selected.itemName
+          );
+          setitems(filtered);
           setnewcat("Electronic");
           setselected(null);
         } else {

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Snackbar from "./Snackbar";
+import { itemsContext } from "../layouts";
 
 function Form({ user, type }: { user: string; type: string }) {
   const [cat, setcat] = useState("Electronic");
@@ -11,10 +12,11 @@ function Form({ user, type }: { user: string; type: string }) {
   // const [snackbarclose, setsnackbarclose] = useState(false);
   const [snackbarmode, setmode] = useState("");
   const [snackbarMessage, setmsg] = useState("");
+  const { items, setitems } = useContext(itemsContext);
   const handlesuggest = (e: React.FormEvent) => {
     e.preventDefault();
     if (type === "admin") {
-      if (file === null) {
+      if (file === null || file === undefined) {
         const d = {
           name: name,
           cat: cat,
@@ -33,6 +35,7 @@ function Form({ user, type }: { user: string; type: string }) {
               console.log(res);
               setsnackbarclose(true);
               setmode("Success");
+              setitems([...items, res]);
               setmsg("New item inserted :)");
               setcat("Electronic");
               setname("");
@@ -80,6 +83,7 @@ function Form({ user, type }: { user: string; type: string }) {
                   console.log(res);
                   setsnackbarclose(true);
                   setmode("Success");
+                  setitems([...items, res]);
                   setmsg("New item inserted :)");
                   setcat("Electronic");
                   setname("");

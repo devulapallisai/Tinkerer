@@ -10,7 +10,8 @@ const itemModalSchema = mongoose.Schema({
   category: String,
   pic: {
     type: String,
-    default: "https://images.app.goo.gl/LWNjN1WCbeGwpjSUA",
+    default:
+      "https://res.cloudinary.com/dotdtp38v/image/upload/v1658253534/Tinkerer_head_crtznp.jpg",
   },
 });
 
