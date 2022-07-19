@@ -7,6 +7,7 @@ import { faSun } from "@fortawesome/free-regular-svg-icons";
 import { ThemeContext } from "./Themeprovider";
 import { useContext } from "react";
 import { adminContext, userContext } from "../layouts";
+import Mobilemenu from "./Mobilemenu";
 
 function Header() {
   const theme = React.useContext(ThemeContext);
@@ -99,6 +100,9 @@ function Header() {
                 className="hover:mb-[2px]"
               />
             </div>
+          </div>
+          <div className="md:hidden block">
+            <Mobilemenu icon={icon} modechange={modechange} />
           </div>
         </div>
       </div>

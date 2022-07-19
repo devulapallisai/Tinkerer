@@ -26,7 +26,7 @@ function Teamcard({
         className="w-full object-cover object-center rounded-lg shadow-md"
       />
 
-      <div className="relative px-4 -mt-16">
+      <div className="px-4 -mt-16">
         <div className="bg-[rgb(49,40,40)] dark:bg-white p-4 rounded-lg shadow-lg">
           <div className="text-center items-baseline">
             <div className=" dark:text-gray-600 text-white uppercase text-xs font-semibold tracking-wider">
