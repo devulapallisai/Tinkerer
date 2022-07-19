@@ -115,6 +115,7 @@ function borrow() {
                     pic={item.pic}
                     available={item.available}
                     total={item.total}
+                    user={user}
                     category={item.category}
                   />
                 </span>

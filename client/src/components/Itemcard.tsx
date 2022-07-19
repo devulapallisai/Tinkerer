@@ -6,14 +6,40 @@ function Itemcard({
   available,
   pic,
   category,
+  user,
 }: {
   name: string;
   total: string;
   available: number;
   pic: string;
   category: string;
+  user: string;
 }) {
-  const handleborrow = () => {};
+  const handleborrow = () => {
+    if (user && available <= Number(total)) {
+      fetch("http://localhost:5000/api/users/borrow", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          itemName: name,
+          email: user,
+        }),
+      }).then((res) =>
+        res.json().then((re) => {
+          if (res.status === 200) {
+            console.log(re);
+            alert("Successfully forwarded request to Admin");
+          } else {
+            alert("Something went wrong. Try after sometime");
+          }
+        })
+      );
+    } else {
+      alert("You haven't logged in");
+    }
+  };
   return (
     <div>
       <div
@@ -39,7 +65,7 @@ function Itemcard({
             </span>
             <button
               className="text-white bg-blue-700 hover:bg-blue-800 
-              focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700"
+              focus:outline-none  font-medium rounded-lg text-sm px-3 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700"
               onClick={handleborrow}
             >
               Borrow

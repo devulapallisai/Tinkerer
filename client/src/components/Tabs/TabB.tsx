@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { itemsContext } from "../../layouts";
+import Adminedit from "../Adminedit";
 type myobj = {
   itemName: string;
   total: string;
@@ -13,7 +14,6 @@ function TabB({ user }: { user: string }) {
   const [selected, setselected] = useState<myobj | null>(null);
   const handlefilter = () => {
     if (search !== "") {
-      console.log("hello");
       const pattern = new RegExp(search, "i");
       const filtered = items.filter((item) => pattern.test(item.itemName));
       if (filtered.length) {
@@ -24,7 +24,7 @@ function TabB({ user }: { user: string }) {
       }
     }
   };
-  const handlesave = () => {};
+
   return (
     <div
       className="tab-pane fade"
@@ -82,14 +82,12 @@ function TabB({ user }: { user: string }) {
           <h1 className="py-2 text-xl md:text-3xl dark:text-white text-gray-900">
             Edit Item
           </h1>
-          <button
-            type="button"
-            className="text-white bg-blue-700 hover:bg-blue-800 font-medium 
-          rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700  dark:focus:ring-blue-800 outline-none max-h-[40px] my-auto mx-2"
-            onClick={handlesave}
-          >
-            Save
-          </button>
+
+          <Adminedit
+            user={user}
+            selected={selected}
+            setselected={setselected}
+          />
         </>
       )}
     </div>

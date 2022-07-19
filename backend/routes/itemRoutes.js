@@ -77,6 +77,21 @@ router.route("/getitem").post(
   })
 );
 
-router.route("/remove").put();
+router.route("/remove").put(
+  authorization,
+  expressAsyncHandler(async (req, res) => {
+    const { dname } = req.body;
+    try {
+      Item.findOneAndRemove({ itemName: dname }, (err, re) => {
+        if (err) {
+          return res.status(404).json({ error: "No such item found" });
+        }
+        return res.status(200).json({ title: "Success" });
+      });
+    } catch (error) {
+      return res.status(500).json({ error: "Trouble with server" });
+    }
+  })
+);
 
 module.exports = router;

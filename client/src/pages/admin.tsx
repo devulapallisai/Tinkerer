@@ -181,7 +181,7 @@ function Admin() {
               ) : tabIndex === 1 ? (
                 <TabB user={user} />
               ) : tabIndex === 2 ? (
-                <TabC />
+                <TabC user={user} />
               ) : (
                 <TabD Suggestions={Suggestions} />
               )}

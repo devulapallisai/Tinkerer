@@ -16,8 +16,6 @@ function Teamcard({
   const styles = {
     display: "grid",
     width: "260px",
-    // height: "100vh",
-    // placeItems: "center",
   };
   return (
     <div className="wrapper p-2 mx-auto w-[240px]" style={styles}>
