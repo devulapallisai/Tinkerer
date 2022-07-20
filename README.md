@@ -1,1 +1,1 @@
-If anybody wants Admin role then send your email to me. I will assign Admin role for testing.
+If anybody wants Admin role then send your email to me. I will assign Admin role for testing and even for successful connection with database you have to get a env file(Contact me and I will share the key).
